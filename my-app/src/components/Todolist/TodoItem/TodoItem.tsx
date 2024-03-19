@@ -1,19 +1,17 @@
 import { Task } from 'components/Interface'
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 
 interface ITodoItemProps {
   item: Task
   onDelete: (id: number) => void
-  isCompleted: () => void
-  completed: boolean
 }
 
 const TodoItem: FC<ITodoItemProps> = ({
   item,
-  onDelete,
-  isCompleted,
-  completed
+  onDelete
 }) => {
+  const [completed, setCompleted] = useState<boolean>(false)
+
   const { id, task } = item
 
   return (
@@ -23,7 +21,7 @@ const TodoItem: FC<ITodoItemProps> = ({
           <input
             type="checkbox"
             checked={completed}
-            onChange={() => isCompleted}
+            onChange={() =>  setCompleted(completed === false ? true : false)}
           />
         </label>
         <p style={{ marginRight: 10 }}>{task}</p>

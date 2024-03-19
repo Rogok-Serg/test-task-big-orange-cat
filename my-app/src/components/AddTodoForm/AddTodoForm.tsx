@@ -1,4 +1,4 @@
-import React, { useState, FC, FormEvent } from 'react'
+import React, { useState, FC, FormEvent, ChangeEvent } from 'react'
 
 interface IModalProps {
   onAdd: (task: string) => void
@@ -31,9 +31,10 @@ const AddTodoForm: FC<IModalProps> = ({ onAdd }) => {
               <input
                 id="taskTask"
                 type="text"
-                name="task"
                 placeholder="Please enter the task"
-                onChange={(e) => setTask(e.target.value)}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setTask(e.target.value)
+                }
                 required
                 value={task}
               />
