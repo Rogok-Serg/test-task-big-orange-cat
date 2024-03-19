@@ -5,7 +5,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 // https://vitejs.dev/config https://vitest.dev/config
 export default defineConfig({
-  base: '/test-task-big-orange-cat',
+  base: '/test-task-big-orange-cat/my-app',
   plugins: [react(), tsconfigPaths()],
   test: {
     globals: true,
